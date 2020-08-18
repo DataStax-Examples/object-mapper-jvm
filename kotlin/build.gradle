@@ -1,0 +1,44 @@
+group 'com.datastax.examples'
+version '1.0.0-SNAPSHOT'
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+def javaDriverVersion = '[4.9.0, 4.99999)'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    kapt group: 'com.datastax.oss', name: 'java-driver-mapper-processor', version: javaDriverVersion
+    compile group: 'com.datastax.oss', name: 'java-driver-mapper-runtime', version: javaDriverVersion
+    compile group: 'at.favre.lib', name: 'bcrypt', version: '0.7.0'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+}
+buildscript {
+    ext.kotlin_version = '1.3.31'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+mainClassName = 'com.datastax.examples.MapperApp'

@@ -5,10 +5,17 @@ object mapper that removes boilerplate of writing queries and lets you focus on 
 objects. This example shows how to use the mapper with various "alternative" JVM tools and
 languages.
 
-See each subdirectory for more explanations.
+**These examples rely on Java driver 4.9.0, which is still in development at the time of writing.**
 
-Note that a "standard" example using vanilla Java and Maven is also available
-[here](https://github.com/DataStax-Examples/object-mapper-java).
+See each subdirectory for more explanations:
+
+* [kotlin/](kotlin/): models entities with Kotlin data classes, builds with Gradle.
+* [scala/](scala/): models entities with Scala case classes, builds with sbt.
+* [lombok/](lombok/): models entities with Java classes annotated with Lombok.
+* [record/](record/): models entities with Java 14 records.
+
+See also the [object-mapper-java](https://github.com/DataStax-Examples/object-mapper-java) project
+for a standard example using JavaBeans.
 
 Contributor(s): [Olivier Michallat](https://github.com/olim7t)
 
